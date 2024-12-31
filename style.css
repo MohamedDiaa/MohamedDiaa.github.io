@@ -153,18 +153,3 @@
     padding: 0px;
     margin: 0px;
 }
-
-body {
-    background-image: url(assets/bg.jpg);
-    background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-div.message {
-    font-size: 10rem;
-    color: white;
-    display: block;
-}
