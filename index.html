@@ -5,7 +5,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        /* Custom Components */
+        .CustomButton {
+
+            background-color: #235683;
+            color: white;
+            padding: 10px 60px;
+            border-radius: 20px;
+            margin-top: 30px;
+            display: block;
+            width: fit-content;
+        }
+
+        /* Navigation */
+        .Navigation-div {
+            width: 40%;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .Navigation-div ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .Navigation-div a {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+
+        }
+
+        .Navigation-div a:hover {
+
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 5px;
+
+        }
+
+        .menuItem {
+            color: white;
+        }
+
+        .Line {
+            width: 2px;
+            height: 30px;
+            background-color: white;
+        }
+
+        .Circle {
+            width: 5px;
+            height: 50px;
+            background-color: white;
+        }
+
+        /* Container */
+        .Container {
+            display: flex;
+            flex-direction: row;
+            overflow: scroll;
+
+        }
+
+        .Background {
+            background-image: url('assets/wirkungsvoller-oxidationsschutz.jpg.pagespeed.ce.DDFD9sV5fw.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .Logo {
+            object-fit: cover;
+        }
+
+        .Container h1 {
+            color: white;
+            display: block;
+        }
+
+        .Container p {
+            color: white;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .ContactUsButton {
+            background-color: #235683;
+            color: white;
+            padding: 10px 60px;
+            border-radius: 20px;
+            margin-top: 30px;
+            display: block;
+            width: fit-content;
+        }
+
+        .Container li {
+            color: white;
+        }
+
+        /* Section 2 */
+        .Section2 {
+
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding: 100px 10%;
+        }
+
+        /* Section 3 */
+
+        .Section3 {
+            background-color: #F2F4F5;
+            /* height: 100vh; */
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .Section3 .Content {
+
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            padding: 0px 100px;
+
+        }
+
+        .Section3 .Content .Left {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            margin-right: 30px;
+        }
+
+        .Section3 .Content .Right {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            margin-left: 30px;
+        }
+
+        .Section3 .Content img {
+            max-width: 50%;
+        }
+
+        /* Section 4 */
+
+        .Section4 {
+            height: 100vh;
+        }
+
+        .Section4 div {
+            margin-top: 10px;
+            width: 30%;
+            margin-left: auto;
+            margin-right: 15%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 10px;
+        }
+
+
+        /* Section 5 */
+
+        .Section5 {
+            display: grid;
+            gap: 1px;
+            grid-template-columns: repeat(3, 1fr);
+            height: 100vh;
+            padding: 0px 100px;
+        }
+
+        .Section5 .Cell {
+
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .Section5 .Cell:first-child {
+            text-align: left;
+        }
+
+        .Section5 .Cell:first-child div {
+
+            padding-left: 40px;
+        }
+
+        .Section5 .Cell:hover {
+
+            background-color: #235683;
+            color: white;
+        }
+
+        .Section5 .Cell:first-child:hover {
+
+            background-color: white;
+            color: black;
+        }
+
+        .Section5 .Cell img {
+            height: 100px;
+        }
+
+        .Section5 .Cell h3 {
+            margin-top: 20px;
+            display: block;
+        }
+
+        .Section5 .Cell p {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -170,12 +417,13 @@
 
         <div class="Cell">
             <div>
-            <h4>Why Nano-Care</h4>
-            <h3>Product Features</h3>
-            <p>The benefits of our multifunctional products are already benefiting businesses and consumers in over 70
-                countries.
-            </p>
-        </div>
+                <h4>Why Nano-Care</h4>
+                <h3>Product Features</h3>
+                <p>The benefits of our multifunctional products are already benefiting businesses and consumers in over
+                    70
+                    countries.
+                </p>
+            </div>
         </div>
         <div class="Cell">
             <img src="assets/icons/icon1.png.pagespeed.ce.sDCg_OFIb1.png" alt="">
@@ -199,7 +447,7 @@
             <h3>Hight Temperature resistance</h3>
             <p>Preservation of properties under extreme heat (up to 1000°C)</p>
         </div>
-     <div class="Cell">
+        <div class="Cell">
             <img src="assets/icons/icon2.png.pagespeed.ce.jtmmyaITbP.png" alt="">
             <h3>The perfect finish</h3>
             <p>Color intensification and gloss give the surfaces excellent asesthetics</p>
