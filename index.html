@@ -1,459 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breath</title>
     <style>
-        * {
-            padding: 0px;
-            margin: 0px;
-            box-sizing: border-box;
+
+      body {
+        background-color: rgb(237, 237, 190);
+        font-family: cursive;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+      #circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgb(223, 223, 20);
+        position: absolute;
+        margin-left: 100% - 40px;
+        margin-right: auto;
+        z-index: 10;
+        animation: size-animation 2s infinite alternate ease-in-out;
+      }
+      @keyframes size-animation {
+        from {
+          scale: 1;
         }
-
-        body {
-            font-family: sans-serif;
+        to {
+          scale: 1.2;
         }
-
-        a {
-            text-decoration: none;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        img {
-            object-fit: contain;
-        }
-
-        /* Custom Components */
-        .CustomButton {
-
-            background-color: #235683;
-            color: white;
-            padding: 10px 60px;
-            border-radius: 20px;
-            margin-top: 30px;
-            display: block;
-            width: fit-content;
-        }
-
-        /* Navigation */
-        .Navigation-div {
-            width: 40%;
-            margin-left: auto;
-            margin-right: 10px;
-        }
-
-        .Navigation-div ul {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .Navigation-div a {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-
-        }
-
-        .Navigation-div a:hover {
-
-            border: 2px solid white;
-            border-radius: 20px;
-            padding: 5px;
-
-        }
-
-        .menuItem {
-            color: white;
-        }
-
-        .Line {
-            width: 2px;
-            height: 30px;
-            background-color: white;
-        }
-
-        .Circle {
-            width: 5px;
-            height: 50px;
-            background-color: white;
-        }
-
-        /* Container */
-        .Container {
-            display: flex;
-            flex-direction: row;
-            overflow: scroll;
-
-        }
-
-        .Background {
-            background-image: url('assets/wirkungsvoller-oxidationsschutz.jpg.pagespeed.ce.DDFD9sV5fw.jpg');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            width: 100%;
-            height: 100vh;
-        }
-
-        .Logo {
-            object-fit: cover;
-        }
-
-        .Container h1 {
-            color: white;
-            display: block;
-        }
-
-        .Container p {
-            color: white;
-            display: block;
-            margin-top: 10px;
-        }
-
-        .ContactUsButton {
-            background-color: #235683;
-            color: white;
-            padding: 10px 60px;
-            border-radius: 20px;
-            margin-top: 30px;
-            display: block;
-            width: fit-content;
-        }
-
-        .Container li {
-            color: white;
-        }
-
-        /* Section 2 */
-        .Section2 {
-
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-            padding: 100px 10%;
-        }
-
-        /* Section 3 */
-
-        .Section3 {
-            background-color: #F2F4F5;
-            /* height: 100vh; */
-
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .Section3 .Content {
-
-            margin-top: 100px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            padding: 0px 100px;
-
-        }
-
-        .Section3 .Content .Left {
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            margin-right: 30px;
-        }
-
-        .Section3 .Content .Right {
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            margin-left: 30px;
-        }
-
-        .Section3 .Content img {
-            max-width: 50%;
-        }
-
-        /* Section 4 */
-
-        .Section4 {
-            height: 100vh;
-        }
-
-        .Section4 div {
-            margin-top: 10px;
-            width: 30%;
-            margin-left: auto;
-            margin-right: 15%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            padding: 10px;
-        }
-
-
-        /* Section 5 */
-
-        .Section5 {
-            display: grid;
-            gap: 1px;
-            grid-template-columns: repeat(3, 1fr);
-            height: 100vh;
-            padding: 0px 100px;
-        }
-
-        .Section5 .Cell {
-
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            flex-direction: column;
-        }
-
-        .Section5 .Cell:first-child {
-            text-align: left;
-        }
-
-        .Section5 .Cell:first-child div {
-
-            padding-left: 40px;
-        }
-
-        .Section5 .Cell:hover {
-
-            background-color: #235683;
-            color: white;
-        }
-
-        .Section5 .Cell:first-child:hover {
-
-            background-color: white;
-            color: black;
-        }
-
-        .Section5 .Cell img {
-            height: 100px;
-        }
-
-        .Section5 .Cell h3 {
-            margin-top: 20px;
-            display: block;
-        }
-
-        .Section5 .Cell p {
-            margin-top: 10px;
-            display: block;
-        }
+      }
+      #circle2 {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background-color: rgb(182, 182, 46);
+        position: absolute;
+        margin-left: 50% - 70px;
+        margin-right: auto;
+        z-index: 9;
+      }
+      #circle3 {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        background-color: rgb(166, 166, 74);
+        position: absolute;
+        margin-left: 50% - 35px;
+        margin-right: auto;
+        z-index: 8;
+        animation: size-animation 2s infinite alternate ease-in-out;
+      }
     </style>
-</head>
-
-<body>
-
-    <div class="Container">
-        <div class="Background">
-
-            <div class="Navigation-div">
-                <ul style="display: flex; justify-content:space-around;">
-                    <li>
-                        <a class="menuItem" href="#Home">Home Pgae</a>
-                    </li>
-                    <li>
-                        <a class="menuItem" href="#">Company</a>
-                    </li>
-                    <li>
-                        <a class="menuItem" href="#Products">Products</a>
-                    </li>
-                    <li>
-                        <a class="menuItem" href="#Blog">Blog</a>
-                    </li>
-                    <li>
-                        <a class="menuItem" href="#Contact">Contact</a>
-                    </li>
-                    <li>
-                        <a class="menuItem" href="#En">En</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div style="margin-left:100px;">
-                <img class="Logo" src="assets/footer-logo.png.pagespeed.ce.CCACn3KlTz.png" alt="">
-                <h1 style="margin-top: 100px;">Nano-Care</h1>
-                <h1>Deutschland AG</h1>
-                <p>Super CHEMISTRY</p>
-                <p>We improve Surfaces. For more than 20 years, we have been the world leading partner for ecological
-                    nanocoatings and suitable surface modification</p>
-                <a class="ContactUsButton" href="#ContactUs">Contact Us</a>
-            </div>
-
-        </div>
+  </head>
+  <body>
+    
+    <h1>Just breath</h1>
+    <p>life is moving so fast and it is time to just sit down and relax. </p>
+    <p>everything in this world breath, so please take your time and focus on gods gift just breathing.</p>
+    <div id="container">
+      <div id="circle"></div>
+      <div id="circle2"></div>
+      <div id="circle3"></div>
     </div>
-
-    <section class="Section2">
-        <h2 style="color: deepskyblue;">Welcome to Nano-Care</h1>
-
-            <h1 style="margin-top: 10px;">The development from Good to Exceptional</h1>
-            <p style="margin-top: 10px;">
-                As a spin-off from the Leibniz Institute for New Materials (INM), our ambition is high: With a view
-                to
-                our environment, we want to protect people and make their lives easier. Dirt-repellent coatings
-                reduce
-                labor and save on cleaning agents. Invisible sealants on work clothing protect skilled workers from
-                chemicals, fire and odors. Antimicrobial coatings protect against smear infections during the
-                Covid-19
-                pandemic.
-
-                We support and supply producers, chemical distributors and users with multifunctional
-                high-performance
-                coatings. In more than 70 countries, companies and consumers benefit from their advantages.
-            </p>
-    </section>
-
-    <section class="Section3">
-        <h2 style="margin-top: 40px; display: block;">What we do</h2>
-        <h1 style="margin-top: 40px; display: block;">We can technology</h1>
-
-        <div class="Content">
-
-            <div class="Left">
-                <h1>Antimicrobial coatings</h1>
-                <p>The Corona pandemic with increasing confirmed cases challenges us. New hygiene concepts are needed.
-                    Before Covid-19 in mid-March, simple cleaning and disinfection was sufficient. But shortly after
-                    wiping, new colonization can occur. 99% of the time, a surface is exposed to viruses and germs until
-                    the next disinfection occurs. What if there was a surface that could defend itself against certain
-                    viruses around the clock? Our antimicrobial coating inactivates the Sars cov-2 coronavirus 10x
-                    faster, providing additional protection against the communicable disease.
-                </p>
-                <a class="CustomButton" href="#ContactUs">Learn more</a>
-            </div>
-
-            <img src="assets/AdobeStock_342983353-1-min.webp" alt="">
-        </div>
-
-        <div class="Content">
-
-            <img src="assets/kermikbeschichtung-auto.jpg.pagespeed.ce.AjTXKsgJ2w.jpg" alt="">
-
-            <div class="Right">
-
-                <h1>Ceramic sealants</h1>
-                <p>
-                    Ceramic sealants protect against UV radiation on a molecular basis. A three-dimensional crystal
-                    lattice allows water to roll off due to lower surface tension. The protection remains on the entire
-                    paint if you use a ph-neutral cleaner. Normally, the end user has to have his car sealed. We
-                    additionally offer consumer products of ceramic coatings.
-                </p>
-                <a class="CustomButton" href="#ContactUs">Learn more</a>
-            </div>
-
-
-        </div>
-
-        <div class="Content">
-
-            <div class="Left">
-                <h1>Nano coating</h1>
-                <p>
-                    “Nano” (Greek: dwarf) is the part of a billionth of a meter. Ultra-thin coatings prevent limescale
-                    from forming on shower stalls in the bathroom, for example, as with nano glass sealing, or simply
-                    allow wine to roll off upholstery and T-shirts. Nano sealings have no effect on UV radiation – wood
-                    undergoes its characteristic aging as desired, but remains free of mold and moss.
-                </p>
-                <a class="CustomButton" href="#ContactUs">Learn more</a>
-            </div>
-
-            <img src="assets/versiegelung-nano-ceramic-schutz.jpg.pagespeed.ce.txYEbo6Eiw.jpg" alt="">
-        </div>
-
-        <div class="Content">
-
-            <img src="assets/AdobeStock_94415262-min.jpg.pagespeed.ce.t5r_3Y15PZ.jpg" alt="">
-
-            <div class="Right">
-
-                <h1>Waterproofing spray</h1>
-                <p>
-                    Clothing or shoes waterproof have always been at the expense of nature in the past. Per- and
-                    polyfluorinated chemicals in waterproofing spray polluted the environment. However, we have an
-                    ecologically sustainable solution that works in wind and weather. Sprayed on at a distance of 30
-                    centimeters, our impregnation spray technology works reliably after drying and is suitable for all
-                    textiles and outdoor shoes. Gore Tex and Sympatex membranes can be re-impregnated once the effect
-                    wears off.
-                </p>
-                <a class="CustomButton" href="#ContactUs">Learn more</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="Section4">
-
-        <div>
-            <h2> Liquid Guard inactivates SARSCov-2 permanently, 24/7.</h2>
-            <p>
-                The Interactive Research School For Health Affairs (IRSHA) succeeds in proving that Liquid Guard
-                technology
-                inactivates the new coronavirus SARSCoV-2. In doing so, researchers test on plastic plates, as the virus
-                is
-                known to survive longest on synthetic materials. Result: complete inactivation. Combined with regular
-                cleaning, the Liquid Guard technology thus offers the key to permanent hygiene of surfaces in the
-                Covid-19
-                pandemic. The long-term effectiveness of the innovation has been proven by field studies and it is
-                available
-                in an increasing number of countries.
-            </p>
-            <a class="CustomButton" href="#ContactUs">Get in touch</a>
-
-        </div>
-    </section>
-
-    <section class="Section5">
-
-        <div class="Cell">
-            <div>
-                <h4>Why Nano-Care</h4>
-                <h3>Product Features</h3>
-                <p>The benefits of our multifunctional products are already benefiting businesses and consumers in over
-                    70
-                    countries.
-                </p>
-            </div>
-        </div>
-        <div class="Cell">
-            <img src="assets/icons/icon1.png.pagespeed.ce.sDCg_OFIb1.png" alt="">
-            <h3>Scratch Protection</h3>
-            <p>Surface beome more resistance to wear</p>
-        </div>
-        <di class="Cell">
-            <img src="assets/icons/icon2.png.pagespeed.ce.jtmmyaITbP.png" alt="">
-            <h3>UV Protection</h3>
-            <p>The anti aging preserves the value of the surface</p>
-        </di>
-
-        <div class="Cell">
-            <img src="assets/icons/icon3.png.pagespeed.ce.XqqnlQAMB6.png" alt="">
-            <h3>Easy to user</h3>
-            <p>Even without special training you get a perfect finish</p>
-        </div>
-
-        <div class="Cell">
-            <img src="assets/icons/icon2.png.pagespeed.ce.jtmmyaITbP.png" alt="">
-            <h3>Hight Temperature resistance</h3>
-            <p>Preservation of properties under extreme heat (up to 1000°C)</p>
-        </div>
-        <div class="Cell">
-            <img src="assets/icons/icon2.png.pagespeed.ce.jtmmyaITbP.png" alt="">
-            <h3>The perfect finish</h3>
-            <p>Color intensification and gloss give the surfaces excellent asesthetics</p>
-        </div>
-    </section>
-
-</body>
-
+  </body>
 </html>
